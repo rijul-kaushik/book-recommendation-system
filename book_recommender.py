@@ -4,6 +4,11 @@ from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.feature_extraction.text import TfidfVectorizer
 import pandas as pd
 
+st.set_page_config(
+    page_title="Bookly",
+    page_icon="images/icon.png"
+)
+
 def fetch_books(query, max_results=40):
     search_url = f"https://openlibrary.org/search.json?q={query}&limit={max_results}"
     response = requests.get(search_url)
@@ -97,7 +102,7 @@ def main():
         </style>
     """, unsafe_allow_html=True)
 
-    st.title("Book Recommender System")
+    st.title("Book Recommendation System")
     
     st.sidebar.header("Search for a Book")
     book_title = st.sidebar.text_input("Enter a Book Title")
